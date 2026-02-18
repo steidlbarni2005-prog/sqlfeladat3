@@ -4,7 +4,7 @@ const pool = mysql.createPool({
     host: '127.0.0.1',
     user: 'root',
     password: '',
-    database: 'exampledb',
+    database: 'iskola',
     waitForConnections: true,
     connectionLimit: 10,
     queueLimit: 0
@@ -16,7 +16,19 @@ async function selectall() {
     const [rows] = await pool.execute(query);
     return rows;
 }
+async function diakok() {
+    const query = 'SELECT * FROM diak;';
+    const [rows] = await pool.execute(query);
+    return rows;
+}
 //!Export
 module.exports = {
-    selectall
+    selectall,
+    diakok
 };
+
+async function selectall() {
+    const query = 'SELECT * FROM ;';
+    const [rows] = await pool.execute(query);
+    return rows;
+}
