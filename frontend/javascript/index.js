@@ -1,9 +1,9 @@
 
 document.addEventListener('DOMContentLoaded', async () => {
-    getMethodFetch('http://127.0.0.1:3000/api/diakok')
+    getMethodFetch('http://127.0.0.1:3000/api/BRADAR')
         .then((data) => {
                       
-            data.forEach(element => {
+            data.resul.forEach(element => {
               console.log('Diák:', element);
             });
    

@@ -41,10 +41,7 @@ router.get('/testsql', async (request, response) => {
     }
 });
 
-module.exports = router;
-
-
-router.get('/diakok', async (request, response) => {
+router.get('/BRADAR', async (request, response) => {
     try {
         console.log('Diákok végpont meghívva');
         const resul = await database.diakok();      
@@ -58,3 +55,5 @@ router.get('/diakok', async (request, response) => {
         });
     }
 });
+
+module.exports = router;
