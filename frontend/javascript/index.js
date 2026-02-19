@@ -2,29 +2,30 @@
 document.addEventListener('DOMContentLoaded', async () => {
     getMethodFetch('http://127.0.0.1:3000/api/diakok')
         .then((data) => {
-            console.log('Fetched data:', data);
+                      
+            data.forEach(element => {
+              console.log('Diák:', element);
+            });
+   
         })
+
         .catch((error) => {
             console.error('Hiba: ', error.message);
         });
 });
 
 
-const getMethodFetch = (url) => {
-    return fetch(url)
-      .then((response) => {
+const getMethodFetch = async (url) => {
+    try {
+        const response = await fetch(url);
         if (!response.ok) {
-          throw new Error(`Hiba: ${response.status}`);
+        throw new Error(`GET hiba: ${response.status} ${response.statusText}`);
         }
-        return response.json();
-      })
-      .then((data) => {
-        return data;
-      })
-      .catch((error) => {
+        return await response.json();
+    } catch (error) {
         throw new Error(`Hiba történt: ${error.message}`);
-      });
-  };
+    }
+}
 
   const postFetch= async(url,data)=>{
     try{
@@ -41,4 +42,4 @@ const getMethodFetch = (url) => {
     }catch(error){
         throw new Error('hiba',error);
     }
-}
+  }

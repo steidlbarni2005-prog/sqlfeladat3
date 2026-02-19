@@ -47,11 +47,10 @@ module.exports = router;
 router.get('/diakok', async (request, response) => {
     try {
         console.log('Diákok végpont meghívva');
-        const resul = await database.diakok();
-        console.log('Diákok lekérdezve:', resul);
+        const resul = await database.diakok();      
         response.status(200).json({
             message: 'Ez a végpont működik.',
-            results: resul
+            resul: resul,
         });
     } catch (error) {
         response.status(500).json({

@@ -26,9 +26,3 @@ module.exports = {
     selectall,
     diakok
 };
-
-async function selectall() {
-    const query = 'SELECT * FROM ;';
-    const [rows] = await pool.execute(query);
-    return rows;
-}
